@@ -1,0 +1,8 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.env
+ass1.ipynb
+# Import required libraries.py
