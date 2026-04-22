@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <aside class="hero-panel">
+            <p class="eyebrow">Voice AI Platform</p>
+            <h1>{{ app_name }}</h1>
+            <p class="hero-copy">
+                A full-stack voice assistant with session memory, browser speech input,
+                spoken replies, and an upgrade path to OpenAI-compatible models.
+            </p>
+            <div class="status-card">
+                <span class="status-label">Provider</span>
+                <strong id="providerMode">{{ provider_mode }}</strong>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">Voice capture</div>
+                <div class="feature-item">Typed chat</div>
+                <div class="feature-item">Session memory</div>
+                <div class="feature-item">Backend tools</div>
+            </div>
+        </aside>
+
+        <main class="assistant-panel">
+            <header class="assistant-header">
+                <div>
+                    <p class="eyebrow">Control Center</p>
+                    <h2>Talk to your assistant</h2>
+                </div>
+                <div class="header-actions">
+                    <button id="newSessionBtn" class="ghost-button">New Session</button>
+                    <button id="muteBtn" class="ghost-button">Mute Voice</button>
+                </div>
+            </header>
+
+            <section id="messages" class="messages" aria-live="polite"></section>
+
+            <section class="composer-panel">
+                <div class="quick-actions">
+                    <button class="chip" data-prompt="What can you do?">Capabilities</button>
+                    <button class="chip" data-prompt="Give me a short project plan.">Plan</button>
+                    <button class="chip" data-prompt="What time is it?">Time</button>
+                    <button class="chip" data-prompt="Clear memory">Clear Memory</button>
+                </div>
+
+                <form id="composerForm" class="composer-form">
+                    <textarea id="promptInput" rows="3" placeholder="Type a request or use the mic..."></textarea>
+                    <div class="composer-actions">
+                        <button type="button" id="listenBtn" class="primary-button">Start Listening</button>
+                        <button type="submit" id="sendBtn" class="secondary-button">Send Message</button>
+                    </div>
+                </form>
+
+                <div class="footer-note">
+                    Browser voice input uses the Web Speech API when available.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js" defer></script>
+</body>
+</html>
